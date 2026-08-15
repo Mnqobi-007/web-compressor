@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Compressor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Web Compressor</h1>
+    <p>Compress images, create ZIPs, and compress MP4 videos directly in your browser.</p>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button id="imgTab" class="active">Image</button>
+      <button id="zipTab">ZIP</button>
+      <button id="vidTab">Video</button>
+    </div>
+
+    <!-- IMAGE SECTION -->
+    <div id="imageSection" class="section">
+      <input type="file" id="imageInput" accept="image/*">
+      <button id="compressImageBtn">Compress Image</button>
+      <p id="imgStatus"></p>
+      <img id="preview" style="display:none;" alt="Preview">
+      <a id="downloadImage" style="display:none;"></a>
+    </div>
+
+    <!-- ZIP SECTION -->
+    <div id="zipSection" class="section hidden">
+      <input type="file" id="zipFiles" multiple>
+      <button id="createZipBtn">Create ZIP</button>
+      <p id="zipStatus"></p>
+      <a id="downloadZip" style="display:none;"></a>
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div id="videoSection" class="section hidden">
+      <input type="file" id="videoInput" accept="video/mp4">
+      <button id="compressVideoBtn">Compress Video</button>
+      <div id="progress-container"><div id="progress-bar"></div></div>
+      <p id="vidStatus"></p>
+      <video id="videoPreview" controls style="display:none;max-width:100%;"></video>
+      <a id="downloadVideo" style="display:none;"></a>
+    </div>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.4/dist/ffmpeg.min.js"></script> -->
+
+  <!-- App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
