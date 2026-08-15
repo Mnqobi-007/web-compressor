@@ -3,53 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Compressor</title>
+  <title>Web Compressor Pro</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗜️</text></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>Web Compressor</h1>
+    <h1>🗜️ Web Compressor</h1>
     <p>Compress images, create ZIPs, and compress MP4 videos directly in your browser.</p>
 
     <!-- Tabs -->
     <div class="tabs">
-      <button id="imgTab" class="active">Image</button>
-      <button id="zipTab">ZIP</button>
-      <button id="vidTab">Video</button>
+      <button id="imgTab" class="active">🖼️ Image</button>
+      <button id="zipTab">📦 ZIP</button>
+      <button id="vidTab">🎬 Video</button>
     </div>
 
-    <!-- IMAGE SECTION -->
+    <!-- ===== IMAGE SECTION ===== -->
     <div id="imageSection" class="section">
       <input type="file" id="imageInput" accept="image/*">
-      <button id="compressImageBtn">Compress Image</button>
-      <p id="imgStatus"></p>
+      <p id="imgStatus" class="file-info"></p>
+
+      <div class="stats-row" id="imgStats">
+        <span class="stat-badge">📐 Original: <span id="imgOrigSize">-</span></span>
+        <span class="stat-badge">📦 Compressed: <span id="imgCompSize">-</span></span>
+        <span class="stat-badge">💾 Saved: <span id="imgSaved">-</span></span>
+      </div>
+
+      <div class="options-row">
+        <label>
+          Quality:
+          <select id="imgQuality">
+            <option value="0.9">High</option>
+            <option value="0.7" selected>Medium</option>
+            <option value="0.5">Low</option>
+            <option value="0.3">Very Low</option>
+          </select>
+        </label>
+        <label>
+          Max Width:
+          <select id="imgMaxWidth">
+            <option value="2048">2048px</option>
+            <option value="1024" selected>1024px</option>
+            <option value="512">512px</option>
+            <option value="256">256px</option>
+          </select>
+        </label>
+      </div>
+
+      <button id="compressImageBtn">⚡ Compress Image</button>
       <img id="preview" style="display:none;" alt="Preview">
       <a id="downloadImage" style="display:none;"></a>
     </div>
 
-    <!-- ZIP SECTION -->
+    <!-- ===== ZIP SECTION ===== -->
     <div id="zipSection" class="section hidden">
       <input type="file" id="zipFiles" multiple>
-      <button id="createZipBtn">Create ZIP</button>
-      <p id="zipStatus"></p>
+      <p id="zipStatus" class="file-info"></p>
+
+      <div class="stats-row" id="zipStats">
+        <span class="stat-badge">📁 Files: <span id="zipFileCount">0</span></span>
+        <span class="stat-badge">📦 Total Size: <span id="zipTotalSize">-</span></span>
+        <span class="stat-badge">📦 ZIP Size: <span id="zipSize">-</span></span>
+      </div>
+
+      <button id="createZipBtn">📦 Create ZIP</button>
       <a id="downloadZip" style="display:none;"></a>
     </div>
 
-    <!-- VIDEO SECTION -->
+    <!-- ===== VIDEO SECTION ===== -->
     <div id="videoSection" class="section hidden">
       <input type="file" id="videoInput" accept="video/mp4">
-      <button id="compressVideoBtn">Compress Video</button>
+      <p id="vidStatus" class="file-info"></p>
+
+      <div class="stats-row" id="vidStats">
+        <span class="stat-badge">📐 Original: <span id="vidOrigSize">-</span></span>
+        <span class="stat-badge">📦 Compressed: <span id="vidCompSize">-</span></span>
+        <span class="stat-badge">💾 Saved: <span id="vidSaved">-</span></span>
+      </div>
+
+      <div class="options-row">
+        <label>
+          Quality:
+          <select id="vidQuality">
+            <option value="2">High (slower)</option>
+            <option value="1" selected>Medium</option>
+            <option value="0.5">Low</option>
+          </select>
+        </label>
+        <label>
+          <input type="checkbox" id="vidHalfSize" checked> Half Size
+        </label>
+        <label>
+          <input type="checkbox" id="vidAudio" checked> Keep Audio
+        </label>
+      </div>
+
+      <button id="compressVideoBtn">🎬 Compress Video</button>
       <div id="progress-container"><div id="progress-bar"></div></div>
-      <p id="vidStatus"></p>
       <video id="videoPreview" controls style="display:none;max-width:100%;"></video>
       <a id="downloadVideo" style="display:none;"></a>
+    </div>
+
+    <!-- Keyboard Shortcuts Hint -->
+    <div class="shortcuts-hint">
+      <kbd>Ctrl</kbd> + <kbd>Enter</kbd> Compress &nbsp;·&nbsp; <kbd>Esc</kbd> Clear
     </div>
   </div>
 
   <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.4/dist/ffmpeg.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.4/dist/ffmpeg.min.js"></script>
 
   <!-- App Script -->
   <script src="script.js"></script>
