@@ -1,8 +1,8 @@
 body {
-  font-family: "Segoe UI", sans-serif;
-  background: #f9fafc;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f0f2f5;
   margin: 0;
-  padding: 0;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,71 +10,173 @@ body {
 }
 
 .container {
-  background: #fff;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: #ffffff;
+  padding: 30px 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   text-align: center;
-  width: 90%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 520px;
+  transition: all 0.3s ease;
 }
 
-h1 { margin-bottom: 10px; }
-p { color: #444; font-size: 14px; }
+h1 {
+  margin: 0 0 6px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+}
+
+.container > p {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0 0 20px 0;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 6px;
+  background: #f1f3f5;
+  padding: 4px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
 
 .tabs button {
-  margin: 5px;
-  padding: 8px 14px;
+  flex: 1;
+  margin: 0;
+  padding: 10px 0;
   border: none;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
-  background: #eee;
-  transition: 0.3s;
+  background: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  color: #6b7280;
+  transition: all 0.3s ease;
 }
 
 .tabs button.active {
-  background: #0078d7;
-  color: white;
+  background: #ffffff;
+  color: #1a1a2e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+.tabs button:hover:not(.active) {
+  color: #1a1a2e;
+}
+
+/* Sections */
+.section {
+  margin-top: 16px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 14px;
+  border: 2px dashed #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.section:hover {
+  border-color: #c7d2fe;
+}
+
+.section.hidden {
+  display: none;
+}
+
+/* File Inputs */
+input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #ffffff;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #6366f1;
+}
+
+/* Buttons */
 button {
-  background-color: #0078d7;
+  background: #6366f1;
   color: white;
   border: none;
-  padding: 10px 18px;
-  font-size: 16px;
-  border-radius: 6px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 12px;
+  width: 100%;
+  transition: all 0.3s ease;
 }
 
-button:hover { background-color: #005fa3; }
+button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
 
-.section { margin-top: 20px; }
-.hidden { display: none; }
+button:active {
+  transform: scale(0.98);
+}
 
-#preview, #videoPreview { margin-top: 10px; border-radius: 8px; max-width: 100%; }
+/* Status Messages */
+#imgStatus, #zipStatus, #vidStatus {
+  font-size: 14px;
+  color: #374151;
+  margin: 12px 0 6px 0;
+  min-height: 24px;
+}
 
-#outputLink, #downloadImage, #downloadZip, #downloadVideo {
+/* Preview Images & Videos */
+#preview, #videoPreview {
+  margin-top: 12px;
+  border-radius: 10px;
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  background: #1a1a2e;
+}
+
+/* Download Links */
+#downloadImage,
+#downloadZip,
+#downloadVideo {
   display: inline-block;
   margin-top: 10px;
-  padding: 8px 12px;
-  background: #28a745;
+  padding: 10px 20px;
+  background: #22c55e;
   color: white;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-#outputLink:hover, #downloadImage:hover, #downloadZip:hover, #downloadVideo:hover {
-  background: #1f8538;
+#downloadImage:hover,
+#downloadZip:hover,
+#downloadVideo:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
 }
 
+/* Progress Bar */
 #progress-container {
-  margin: 15px 0;
+  margin: 14px 0 8px 0;
   width: 100%;
-  height: 10px;
-  background-color: #eee;
-  border-radius: 5px;
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
   overflow: hidden;
   display: none;
 }
@@ -82,6 +184,23 @@ button:hover { background-color: #005fa3; }
 #progress-bar {
   height: 100%;
   width: 0%;
-  background-color: #0078d7;
-  transition: width 0.3s;
+  background: linear-gradient(90deg, #6366f1, #22c55e);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+  
+  .section {
+    padding: 16px;
+  }
+  
+  .tabs button {
+    font-size: 13px;
+    padding: 8px 0;
+  }
 }
