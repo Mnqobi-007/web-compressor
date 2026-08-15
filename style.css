@@ -1,5 +1,16 @@
+/* ============================================================
+   WEB COMPRESSOR PRO - STYLES
+   ============================================================ */
+
+/* ===== RESET & BASE ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: #f0f2f5;
   margin: 0;
   padding: 20px;
@@ -9,21 +20,23 @@ body {
   min-height: 100vh;
 }
 
+/* ===== CONTAINER ===== */
 .container {
   background: #ffffff;
   padding: 30px 35px;
   border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
   text-align: center;
   width: 100%;
-  max-width: 520px;
+  max-width: 540px;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 h1 {
   margin: 0 0 6px 0;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 800;
   color: #1a1a2e;
   letter-spacing: -0.5px;
 }
@@ -34,7 +47,7 @@ h1 {
   margin: 0 0 20px 0;
 }
 
-/* Tabs */
+/* ===== TABS ===== */
 .tabs {
   display: flex;
   gap: 6px;
@@ -68,7 +81,7 @@ h1 {
   color: #1a1a2e;
 }
 
-/* Sections */
+/* ===== SECTIONS ===== */
 .section {
   margin-top: 16px;
   padding: 20px;
@@ -86,7 +99,7 @@ h1 {
   display: none;
 }
 
-/* File Inputs */
+/* ===== FILE INPUTS ===== */
 input[type="file"] {
   display: block;
   width: 100%;
@@ -103,7 +116,83 @@ input[type="file"]:hover {
   border-color: #6366f1;
 }
 
-/* Buttons */
+input[type="file"]:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* ===== FILE INFO ===== */
+.file-info {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 8px 0 4px 0;
+  min-height: 22px;
+}
+
+/* ===== STATS ROW ===== */
+.stats-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 8px 0 12px 0;
+  flex-wrap: wrap;
+}
+
+.stat-badge {
+  background: #f1f3f5;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.stat-badge span {
+  color: #6366f1;
+  font-weight: 700;
+}
+
+/* ===== OPTIONS ROW ===== */
+.options-row {
+  display: flex;
+  gap: 12px;
+  margin: 10px 0 12px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.options-row label {
+  font-size: 13px;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.options-row select {
+  padding: 4px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  background: white;
+  cursor: pointer;
+}
+
+.options-row select:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.options-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #6366f1;
+  cursor: pointer;
+}
+
+/* ===== BUTTONS ===== */
 button {
   background: #6366f1;
   color: white;
@@ -113,7 +202,7 @@ button {
   font-weight: 600;
   border-radius: 10px;
   cursor: pointer;
-  margin-top: 12px;
+  margin-top: 4px;
   width: 100%;
   transition: all 0.3s ease;
 }
@@ -121,23 +210,33 @@ button {
 button:hover {
   background: #4f46e5;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
 }
 
 button:active {
   transform: scale(0.98);
 }
 
-/* Status Messages */
-#imgStatus, #zipStatus, #vidStatus {
-  font-size: 14px;
-  color: #374151;
-  margin: 12px 0 6px 0;
-  min-height: 24px;
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
-/* Preview Images & Videos */
-#preview, #videoPreview {
+/* Clear Button */
+.btn-clear {
+  background: #ef4444 !important;
+  margin-top: 6px;
+}
+
+.btn-clear:hover {
+  background: #dc2626 !important;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.3) !important;
+}
+
+/* ===== PREVIEWS ===== */
+#preview,
+#videoPreview {
   margin-top: 12px;
   border-radius: 10px;
   max-width: 100%;
@@ -146,7 +245,7 @@ button:active {
   background: #1a1a2e;
 }
 
-/* Download Links */
+/* ===== DOWNLOAD LINKS ===== */
 #downloadImage,
 #downloadZip,
 #downloadVideo {
@@ -167,10 +266,10 @@ button:active {
 #downloadVideo:hover {
   background: #16a34a;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.3);
 }
 
-/* Progress Bar */
+/* ===== PROGRESS BAR ===== */
 #progress-container {
   margin: 14px 0 8px 0;
   width: 100%;
@@ -189,18 +288,154 @@ button:active {
   transition: width 0.3s ease;
 }
 
-/* Responsive */
-@media (max-width: 480px) {
+/* ===== TOAST NOTIFICATIONS ===== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #1a1a2e;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1000;
+  pointer-events: none;
+  max-width: 90%;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+  background: #16a34a;
+}
+
+.toast.error {
+  background: #dc2626;
+}
+
+.toast.info {
+  background: #6366f1;
+}
+
+/* ===== SHORTCUTS HINT ===== */
+.shortcuts-hint {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.shortcuts-hint kbd {
+  background: #f1f3f5;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+/* ===== LOADING SPINNER ===== */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #e5e7eb;
+  border-top: 2px solid #6366f1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 540px) {
   .container {
     padding: 20px;
+    border-radius: 16px;
   }
-  
+
   .section {
     padding: 16px;
   }
-  
+
   .tabs button {
     font-size: 13px;
     padding: 8px 0;
+  }
+
+  .stats-row {
+    gap: 6px;
+  }
+
+  .stat-badge {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
+
+  .options-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .shortcuts-hint {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 14px;
+  }
+
+  .section {
+    padding: 12px;
+  }
+
+  .stat-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .toast {
+    transition: none;
+  }
+
+  .toast.show {
+    transition: none;
   }
 }
